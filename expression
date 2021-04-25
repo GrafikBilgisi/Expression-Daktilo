@@ -1,0 +1,20 @@
+var sign = "|";
+var blinkInterval = 15;
+var i = effect("Slider Control")("ADBE Slider Control-0001");
+var on = effect("Checkbox Control")("ADBE Checkbox Control-0001");
+var frames = timeToFrames(time);
+var check = frames / blinkInterval;
+if (on == 1) {
+  if (i.valueAtTime(time + thisComp.frameDuration) > i) {
+    end = sign;
+  } else {
+    if (Math.floor(check) % 2 == 0) {
+      end = sign;
+    } else {
+      end = " ";
+    }
+  }
+} else {
+  end = " ";
+}
+text.sourceText.substr(0,parseInt(i)) + end;
